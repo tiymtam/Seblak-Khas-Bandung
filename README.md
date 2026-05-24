@@ -1,4 +1,4 @@
-# 🍜 Seblak Khas Bandung - Landing Page Promosi
+# 🍜 Seblak Khas Bandung
 
 Project ini adalah *landing page* interaktif yang dibuat untuk memenuhi tugas Ujian Akhir Semester (UAS) mata kuliah **E-Business**, Program Studi Sistem Informasi, Universitas Negeri Semarang (UNNES).
 
@@ -6,7 +6,7 @@ Project ini berfokus pada digitalisasi produk kuliner lokal (Seblak) menjadi pro
 
 ## 🔗 Live Demo
 Kamu bisa melihat hasil *deploy* dari *landing page* ini melalui tautan berikut:
-**[👉 Kunjungi Seblak Khas Bandung Live]((https://seblak-khas-bandung.vercel.app/))** 
+**[👉 Kunjungi Seblak Khas Bandung Live](https://seblak-khas-bandung.vercel.app/)**
 
 ## ✨ Fitur Utama (Unique Value Proposition)
 * **Hero Section Interaktif:** Menampilkan visual produk yang menggugah selera dengan copywriting persuasif ala *startup* kuliner.
