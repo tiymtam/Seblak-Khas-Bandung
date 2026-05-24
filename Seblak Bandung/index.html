@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seblak Khas Bandung — Blubuk-Blubuk Tanpa Kompor!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Satisfy&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ====== RESET & BASE ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:      #C8281A;
+      --red-dark: #8B1A10;
+      --red-light:#FDECEA;
+      --orange:   #E8600A;
+      --amber:    #F59E0B;
+      --cream:    #FDF6EE;
+      --warm:     #FBF0E3;
+      --text:     #1A0E06;
+      --muted:    #6B4130;
+      --guava:    #fee3e3;
+      --border:   #E8CDB8;
+      --white:    #FFFFFF;
+      --r: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* GANTI FONT HEADING JADI BASKERVILLE */
+    h1, h2, h3 {
+      font-family: 'Libre Baskerville', serif;
+      line-height: 1.2;
+    }
+
+    /* ====== NAV ====== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 246, 238, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .nav-logo {
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    /* SPAN DI LOGO PAKAI SATISFY */
+    .nav-logo span { 
+      font-family: 'Satisfy', cursive;
+      color: var(--red);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-left: 5px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--red); }
+
+    .btn-nav {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 99px;
+      font-weight: 600 !important;
+    }
+
+    .btn-nav:hover { background: var(--red-dark); color: var(--white) !important; }
+
+    /* ====== HERO ====== */
+    .hero {
+      min-height: 90vh;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 3rem 6vw 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232, 96, 10, 0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 40% at 10% 90%, rgba(200, 40, 26, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--red-light);
+      color: var(--red);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+      border: 1px solid rgba(200,40,26,0.2);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    /* EM DI HERO TITLE PAKAI SATISFY */
+    .hero-title em {
+      font-family: 'Satisfy', cursive;
+      font-weight: 400;
+      font-size: 1.3em; /* Dibesarkan sedikit karena font latin biasanya lebih kecil */
+      color: var(--red);
+      display: block;
+      margin-top: -10px;
+      margin-bottom: 5px;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.875rem 2rem;
+      border-radius: 99px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 4px 20px rgba(200,40,26,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(200,40,26,0.4);
+      background: var(--red-dark);
+    }
+
+    .btn-3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.875rem 2rem;
+      border-radius: 99px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 4px 20px rgba(200,40,26,0.3);
+    }
+
+    .btn-3:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(200,40,26,0.4);
+      background: var(--red-dark);
+      color: var(--cream);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 1.75rem;
+      border-radius: 99px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--orange);
+      background: var(--warm);
+    }
+
+    /* ====== HERO VISUAL ====== */
+    .hero-visual {
+      animation: fadeRight 0.8s 0.2s ease both;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mockup-img {
+      width: 100%;
+      max-width: 580px; 
+      margin: 0 auto;
+      display: block;
+      border: none; 
+      background: transparent; 
+      
+      /* TRIK CSS: Membuang background krem bawaan foto biar nyatu sama bg web */
+      mix-blend-mode: multiply;
+
+      /* Shadow merah menyala */
+      /* Filter drop-shadow lebih efektif dari box-shadow kalau pakai mix-blend-mode */
+      filter: drop-shadow(0 20px 40px rgba(200,40,26,0.4));
+      
+      object-fit: contain; 
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* ====== SECTION BASE ====== */
+    section { padding: 6rem 6vw; }
+
+    .section-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    /* ====== STATS STRIP ====== */
+    .stats-strip {
+      background: var(--red);
+      padding: 2.5rem 6vw;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .stat-num {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .stat-desc {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    /* ====== PROBLEM/SOLUTION ====== */
+    .ps-section { background: var(--warm); }
+
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .ps-card {
+      border-radius: var(--r);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ps-card.problem {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+    }
+
+    .ps-card.solution {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .ps-icon {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    .ps-card-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .ps-card.solution .ps-card-title { color: var(--white); }
+    .ps-card.problem .ps-card-title { color: var(--text); }
+
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .ps-card.problem .ps-list li { color: var(--muted); }
+    .ps-card.solution .ps-list li { color: rgba(255,255,255,0.9); }
+
+    .ps-list li::before {
+      content: '';
+      display: block;
+      min-width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .ps-card.problem .ps-list li::before { background: var(--red); }
+    .ps-card.solution .ps-list li::before { background: var(--amber); }
+
+    /* ====== TOPPING FEATURE ====== */
+    .topping-section { background: var(--cream); }
+
+    .topping-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+    }
+
+    .spicy-selector {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 2rem;
+    }
+
+    .spicy-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .spicy-levels {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .level-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--muted);
+    }
+
+    .level-btn.active, .level-btn:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    .topping-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .topping-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--muted);
+    }
+
+    .topping-chip.picked {
+      background: var(--red-light);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .topping-chip span { font-size: 1.1rem; }
+
+    .summary-card {
+      background: var(--red);
+      border-radius: var(--r);
+      padding: 1.75rem;
+      color: var(--white);
+    }
+
+    .summary-card h4 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .s-tag {
+      background: rgba(255,255,255,0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .s-tag.empty {
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+      background: transparent;
+    }
+
+    .order-btn {
+      margin-top: 1.25rem;
+      width: 100%;
+      background: var(--white);
+      color: var(--red);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .order-btn:hover { transform: scale(1.02); }
+
+    /* ====== PROJECT CORNER ====== */
+    .project-section {
+      background: var(--text);
+      color: var(--white);
+    }
+
+    .project-section .section-title { color: var(--white); }
+    .project-section .section-label { color: var(--amber); }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r);
+      padding: 2.25rem;
+    }
+
+    .project-card-icon {
+      font-size: 2.25rem;
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-card h3 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .target-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .target-pill {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--amber);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+    }
+
+    .promo-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .promo-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .promo-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .promo-text { font-size: 0.9rem; color: rgba(255,255,255,0.75); }
+    .promo-text strong { color: var(--white); display: block; margin-bottom: 0.1rem; }
+
+    /* ====== TESTIMONIALS ====== */
+    .testi-section { background: var(--warm); }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 2.25rem;
+      position: relative;
+    }
+
+    .testi-card::before {
+      content: '"';
+      font-family: 'Satisfy', cursive;
+      font-size: 6rem;
+      color: var(--red-light);
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      line-height: 1;
+    }
+
+    .stars {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .testi-text {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .testi-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testi-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .testi-name { font-weight: 700; font-size: 0.95rem; }
+    .testi-role { font-size: 0.8rem; color: var(--muted); }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--text);
+      color: var(--white);
+      padding: 4rem 6vw 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .footer-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .social-link:hover {
+      background: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .footer-col h4 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--amber); }
+
+    .footer-cta {
+      background: var(--red);
+      border-radius: var(--r);
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .footer-cta p {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+    .footer-tag {
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--amber);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.85rem;
+      border-radius: 99px;
+    }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-15px); }
+    }
+
+    /* Fade-in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 5rem 6vw 3rem; gap: 3rem; text-align: center; }
+      .hero-sub { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { order: -1; }
+      .mockup-img { max-width: 380px; } 
+      .ps-grid, .topping-header, .project-grid, .testi-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 4rem 5vw; }
+      .hero { padding: 4rem 5vw 3rem; }
+      .stats-strip { padding: 2rem 5vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Seblak <span>Khas Bandung</span></a>
+    <ul>
+      <li><a href="#ps">Tentang</a></li>
+      <li><a href="#topping">Pilih Topping</a></li>
+      <li><a href="#footer" class="btn-nav">Pesan Sekarang</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Inovasi Self-Heating Pertama dari Bandung</div>
+      <h1 class="hero-title">
+        Blubuk-Blubuk<br>
+        <em>Tanpa Kompor,</em>
+        Di Mana Aja!
+      </h1>
+      <p class="hero-sub">
+        Seblak instan premium dengan teknologi <strong>Self-Heating Cup</strong> — cukup tambah air, cup panas sendiri dalam 3 menit. Cocok buat anak kos, traveler, dan semua pencinta pedas!
+      </p>
+      <div class="hero-actions">
+        <a href="#footer" class="btn-primary">🛒 Pesan Sekarang</a>
+        <a href="#topping" class="btn-secondary">✨ Pilih Topping</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="product.png" alt="Mockup Seblak Khas Bandung" class="mockup-img" />
+    </div>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat-item reveal">
+      <span class="stat-num">⚡ 3 Menit</span>
+      <span class="stat-desc">Siap disantap tanpa kompor</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">5 Level</span>
+      <span class="stat-desc">Pilihan tingkat kepedasan</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">12+ Topping</span>
+      <span class="stat-desc">Kombinasi sesukamu</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">100% Halal</span>
+      <span class="stat-desc">Bersertifikat & aman dikonsumsi</span>
+    </div>
+  </div>
+
+  <section class="ps-section" id="ps">
+    <div class="reveal">
+      <span class="section-label">Problem &amp; Solution</span>
+      <h2 class="section-title">Kenapa Harus Seblak Khas Bandung?</h2>
+      <p class="section-sub">Bukan seblak biasa. Kami hadir untuk menjawab masalah nyata pencinta seblak masa kini.</p>
+    </div>
+
+    <div class="ps-grid">
+      <div class="ps-card problem reveal">
+        <span class="ps-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </span>
+        <div class="ps-card-title">Masalah yang Sering Terjadi</div>
+        <ul class="ps-list">
+          <li>Ngidam seblak tapi kosan nggak boleh masak</li>
+          <li>Repot nyari kompor atau alat masak saat traveling</li>
+          <li>Warung seblak udah tutup tengah malam</li>
+          <li>Seblak instan biasa rasanya hambar dan nggak otentik</li>
+          <li>Bosen pilihan topping yang itu-itu aja</li>
+        </ul>
+      </div>
+
+      <div class="ps-card solution reveal">
+        <span class="ps-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="16 10 11 15 8 12"></polyline>
+          </svg>
+        </span>
+        <div class="ps-card-title">Solusi Seblak Khas Bandung</div>
+        <ul class="ps-list">
+          <li>Teknologi Self-Heating Cup — panas sendiri, cukup tambah air</li>
+          <li>Bisa dinikmati di mana saja: kosan, kereta, kantor, gunung</li>
+          <li>Tersedia 24 jam via platform digital & instant chat</li>
+          <li>Bumbu racikan Bandung asli, level pedas yang presisi</li>
+          <li>Pilihan topping custom digital sebelum pesan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works" style="background: var(--guava); padding: 6rem 6vw; text-align: center;">
+    <div class="reveal">
+      <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 1rem;">
+        Cara Penyajian
+      </span>
+      <h2 style="font-family: 'Libre Baskerville', serif; font-size: clamp(2rem, 3.5vw, 2.75rem); color: var(--text); margin-bottom: 3.5rem; font-weight: 700;">
+        Tiga Langkah Gampang.<br>
+        <em style="font-family: 'Satisfy', cursive; color: var(--red); font-size: 1.2em; font-weight: 400;">Langsung Makan!</em>
+      </h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; max-width: 1100px; margin: 0 auto; margin-bottom: 4rem;">
+      
+      <div class="reveal" style="background: var(--white); padding: 2.5rem; border-radius: 20px; border: 1.5px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+        <h3 style="font-family: 'Libre Baskerville', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--red); font-weight: 700;">1. Buka Kemasan</h3>
+        <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Siapkan wadah, lalu masukkan semua bumbu basah, topping favoritmu, dan <em>heating pad</em>.</p>
+      </div>
+
+      <div class="reveal" style="background: var(--white); padding: 2.5rem; border-radius: 20px; border: 1.5px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+        <h3 style="font-family: 'Libre Baskerville', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--red); font-weight: 700;">2. Tuang Air Biasa</h3>
+        <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Tuangkan air mineral suhu ruang. Nggak perlu air panas apalagi numpang masak di dapur orang!</p>
+      </div>
+
+      <div class="reveal" style="background: var(--white); padding: 2.5rem; border-radius: 20px; border: 1.5px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+        <h3 style="font-family: 'Libre Baskerville', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--red); font-weight: 700;">3. Tunggu 5 Menit</h3>
+        <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Tutup rapat, tunggu sampai <em>blubuk-blubuk</em>, dan seblak otentikmu siap disantap hangat!</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
+      <h3 style="font-family: 'Libre Baskerville', serif; font-size: 1.8rem; color: var(--text); margin-bottom: 0.5rem; font-weight: 700;">
+        Ta-da! Seblak Khas Bandung Siap Disantap 🍜
+      </h3>
+      <p style="font-family: 'Satisfy', cursive; font-size: 1.6rem; color: var(--red); margin-bottom: 2.5rem;">
+        Pedesnya nendang, bumbu otentik, praktis banget!
+      </p>
+      
+      <img src="product2.png" alt="Seblak Matang Sempurna" 
+           style="width: 100%; 
+                  max-width: 500px; 
+                  object-fit: contain; 
+                  mix-blend-mode: multiply; 
+                  filter: drop-shadow(0 20px 40px rgba(200,40,26,0.4)); 
+                  animation: float 4s ease-in-out infinite;">
+    </div>
+  </section>
+
+  <section class="topping-section" id="topping">
+    <div class="topping-header">
+      <div class="reveal">
+        <span class="section-label">Custom Topping Feature</span>
+        <h2 class="section-title">Rakit Seblakmu Sendiri!</h2>
+        <p class="section-sub">Fitur digital pertama di dunia seblak instan. Pilih level pedas dan topping favoritmu, lalu pesan langsung via web.</p>
+      </div>
+      <div class="reveal">
+        <div class="spicy-selector">
+          <div class="spicy-title">🌶️ Pilih Level Pedas</div>
+          <div class="spicy-levels">
+            <button class="level-btn" onclick="setLevel(this,'Tidak Pedas ')">Level 0</button>
+            <button class="level-btn" onclick="setLevel(this,'Pedas Tipis 🌶️')">Level 1</button>
+            <button class="level-btn active" onclick="setLevel(this,'Sedang 🌶️🌶️')">Level 2</button>
+            <button class="level-btn" onclick="setLevel(this,'Pedas Banget 🌶️🌶️🌶️')">Level 3</button>
+            <button class="level-btn" onclick="setLevel(this,'EXTRA NAMPOL 🌶️🌶️🌶️🌶️🌶️')">Level 4</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="spicy-title" style="margin-bottom:1rem; font-family:'Libre Baskerville',serif; font-weight:700; text-align:center;">Pilih Topping (bisa lebih dari satu)</div>
+      <div class="topping-grid" id="toppingGrid" style="justify-content: center;">
+        <button class="topping-chip picked" style="justify-content: center;" onclick="toggleTopping(this)">Kerupuk</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Makaroni</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Ceker ayam</button>
+        <button class="topping-chip picked" style="justify-content: center;" onclick="toggleTopping(this)">Bakso</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Sosis</button>
+        <button class="topping-chip picked" style="justify-content: center;" onclick="toggleTopping(this)">Telur</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Kwetiau</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Mi instan</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Dumpling</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Tahu</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Seafood</button>
+        <button class="topping-chip" style="justify-content: center;" onclick="toggleTopping(this)">Sayuran</button>
+      </div>
+    </div>
+
+      <div class="summary-card" style="margin-top:2rem;" id="summaryCard">
+        <h4>📦 Ringkasan Pesananmu</h4>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Level Pedas: <strong id="levelDisplay" style="color:#fff">Sedang 🌶️🌶️</strong></p>
+        <div class="summary-tags" id="summaryTags">
+          <span class="s-tag">Kerupuk</span>
+          <span class="s-tag">Bakso</span>
+          <span class="s-tag">Telur</span>
+        </div>
+        <button class="order-btn" onclick="sendOrder()">🛒 Pesan dengan Pilihan Ini →</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="target-banner reveal" style="background: var(--red); color: var(--white); text-align: center; padding: 4rem 6vw;">
+    <h2 style="font-family: 'Libre Baskerville', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1rem; font-weight: 700;">
+      Penyelamat Lapar Tengah Malam! 🌙
+    </h2>
+    <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+      Solusi paling pas buat <strong style="color: var(--amber);">mahasiswa kosan, pekerja muda, dan traveler</strong> yang butuh seblak otentik tanpa harus ribet nyari kompor atau nunggu ojol.
+    </p>
+  </section>
+
+  
+  <footer id="footer">
+    <div class="footer-cta reveal">
+      <p>Siap Makan Seblak Tanpa Ribet? </p>
+      <a href="#" class="btn-3" style="display:inline-flex;">Pesan Sekarang via WhatsApp</a>
+    </div>
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Seblak <span style="font-family: 'Satisfy', cursive; color: var(--red);">Khas Bandung</span></a>
+        <p class="footer-desc">Seblak instan premium dengan teknologi Self-Heating Cup. Bikin ngidam seblak kapan aja dan di mana aja, tanpa kompor, tanpa ribet.</p>
+        <div class="social-links">
+          <a class="social-link" href="#" aria-label="TikTok">🎵</a>
+          <a class="social-link" href="#" aria-label="Instagram">📸</a>
+          <a class="social-link" href="#" aria-label="WhatsApp">💬</a>
+          <a class="social-link" href="#" aria-label="Shopee">🛍️</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Produk</h4>
+        <ul class="footer-links">
+          <li><a href="#">Seblak Original</a></li>
+          <li><a href="#">Seblak Seafood</a></li>
+          <li><a href="#">Seblak Cheese</a></li>
+          <li><a href="#">Bundle Hemat</a></li>
+          <li><a href="#">Custom Hamper</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul class="footer-links">
+          <li><a href="#">📱 WhatsApp</a></li>
+          <li><a href="#">📧  Email</a></li>
+          <li><a href="#">📍 Bandung, Jawa Barat</a></li>
+          <li><a href="#">🕐  Respons 24 Jam</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom" style="display: flex; justify-content: center; text-align: center; width: 100%;">
+      <p>© 2026 Seblak Khas Bandung.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Level selector
+    let currentLevel = 'Sedang 🌶️🌶️';
+    function setLevel(btn, level) {
+      document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentLevel = level;
+      document.getElementById('levelDisplay').textContent = level;
+    }
+
+    // Topping toggle
+    function toggleTopping(btn) {
+      btn.classList.toggle('picked');
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const picked = Array.from(document.querySelectorAll('.topping-chip.picked'));
+      const container = document.getElementById('summaryTags');
+      container.innerHTML = '';
+      if (picked.length === 0) {
+        container.innerHTML = '<span class="s-tag empty">Belum ada topping dipilih</span>';
+        return;
+      }
+      picked.forEach(p => {
+        const span = document.createElement('span');
+        span.className = 's-tag';
+        span.textContent = p.textContent.trim();
+        container.appendChild(span);
+      });
+    }
+
+    function sendOrder() {
+      const picked = Array.from(document.querySelectorAll('.topping-chip.picked')).map(p => p.textContent.trim()).join(', ');
+      const msg = encodeURIComponent(`Halo Seblak Khas Bandung! Saya mau pesan:\n\n🌶️ Level Pedas: ${currentLevel}\n🍳 Topping: ${picked || 'Tanpa topping'}\n\nMohon info harga dan ketersediaan ya!`);
+      window.open(`https://wa.me/6285128010060?text=${msg}`, '_blank');
+    }
+  </script>
+</body>
+</html>
